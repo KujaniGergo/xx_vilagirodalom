@@ -1,78 +1,55 @@
-//commit 3. console col object bev
+//commit 4. console col array bev
 //címsor
 /**
- * @type {string} //Szerző typusa
+ * @type {string[]}//Címsor adatainak típusa
  */
-const cimSorSzerzo = "Szerző" //Szerző deklarálása
-/**
- * @type {string} //Mű típusa
- */
-const cimSorMu = "Mű" //Mű deklarálása
-/**
- * @type {string} //Ágazat típusa
- */
-const cimSorAgazat = "Ágazat" //Ágazat Deklarálása
+const cimSor = ["Szerző", "Mű", "Fogalmak"]; //Címsor adatai
 
 /**
- * @type {{szerzo:string,mu:string,fogalmakEgy:string,fogalmakKetto:string}} Változók típusainak megadása
+ * @type {szerzo:string,mu:string,fogalmakEgy:string,fogalmakKetto:string} //Adat tomb typusainak megadása
  */
-const elsoSor = {//Első sor szerző változóinak deklarálása
+const adatTomb = [ //Adat tomb deklaralasa
+    {//Első sor szerző változóinak deklarálása
     szerzo: "Appolliniare", //Elso sor tartalmai
     mu: "A megsebzett galamb és a szökőkút", //Elso sor tartalmai
     fogalmakEgy: "képvers", //Elso sor tartalmai
     fogalmakKetto: "emlékezés",   //Elso sor tartalmai
-    }
+    },
 
-
-/**
- * @type {{szerzo:string,mu:string,fogalmakEgy:string,fogalmakKetto:string}} Változók típusainak megadása
- */
-const masodikSor = {//Második sor szerző változóinak deklarálása
+    {//Második sor szerző változóinak deklarálása
     szerzo: "Apollinaire", //Második sor tartalmai
     mu: "Búcsú", //Második sor tartalmai
     fogalmakEgy: "avantgárd",//Második sor tartalmai
-    }
+    },
 
-
-/**
- * @type {{szerzo:string,mu:string,fogalmakEgy:string,fogalmakKetto:string}} Változók típusainak megadása
- */
-const harmadikSor = {//Harmadik sor szerző változóinak deklarálása
+    {//Harmadik sor szerző változóinak deklarálása
     szerzo: "Thomas Mann", //Harmadik sor tartalmai
     mu: "Mario és a varázsló",//Harmadik sor tartalmai
     fogalmakEgy: "kisregény", //Harmadik sor tartalmai
-    }
+    },
 
-
-/**
- * @type {{szerzo:string,mu:string,fogalmakEgy:string,fogalmakKetto:string}} Változók típusainak megadása
- */
-const negyedikSor = {//Negyedik sor szerző változóinak deklarálása
+    {//Negyedik sor szerző változóinak deklarálása
     szerzo: "Franz Kafka", //Negyedik sor tartalmai
     mu: "A per", //Negyedik sor tartalmai
     fogalmakEgy: "regény",//Negyedik sor tartalmai
-    }
+    },
 
-
-/**
- * @type {{szerzo:string,mu:string,fogalmakEgy:string,fogalmakKetto:string}} Változók típusainak megadása
- */
-const ototdikSor ={//Ötödik sor szerző változóinak deklarálása
+    {//Ötödik sor szerző változóinak deklarálása
     szerzo: "Franz Kafka", //Ötödik sor tartalmai
     mu: "Az átvlátozás", //Ötödik sor tartalmai
     fogalmakEgy: "kisregény", //Ötödik sor tartalmai
     fogalmakKetto: "groteszk", //Ötödik sor tartalmai
     }
-
+]
 
 
 
 
 
 //kiírás consol-ba
-console.log( cimSorSzerzo +" | "+ cimSorMu +" | " + cimSorAgazat +"| |"); //első sor kiírás
-console.log(`${elsoSor.szerzo} | ${elsoSor.mu} | ${elsoSor.fogalmakEgy} | ${elsoSor.fogalmakKetto} |`) //második sor kiírás
-console.log(`${masodikSor.szerzo} | ${masodikSor.mu} | ${masodikSor.fogalmakEgy} | |`) //első sor kiírás
-console.log(`${harmadikSor.szerzo} | ${harmadikSor.mu} | ${harmadikSor.fogalmakEgy} |  |`) //harmadik sor kiírás
-console.log(`${negyedikSor.szerzo} | ${negyedikSor.mu} | ${negyedikSor.fogalmakEgy} | |`) //negyedik sor kiírás
-console.log(`${ototdikSor.szerzo} | ${ototdikSor.mu} | ${ototdikSor.fogalmakEgy} | ${ototdikSor.fogalmakKetto} |`) //ötödik sor kiírás
+console.log( cimSor[0] +" | "+ cimSor[0] +" | " + cimSor[0] +"| |"); //első sor kiírás
+console.log(`${adatTomb[0].szerzo} | ${adatTomb[0].mu} | ${adatTomb[0].fogalmakEgy} | ${adatTomb[0].fogalmakKetto} |`) //második sor kiírás
+console.log(`${adatTomb[1].szerzo} | ${adatTomb[1].mu} | ${adatTomb[1].fogalmakEgy} | |`) //első sor kiírás
+console.log(`${adatTomb[2].szerzo} | ${adatTomb[2].mu} | ${adatTomb[2].fogalmakEgy} |  |`) //harmadik sor kiírás
+console.log(`${adatTomb[3].szerzo} | ${adatTomb[3].mu} | ${adatTomb[3].fogalmakEgy} | |`) //negyedik sor kiírás
+console.log(`${adatTomb[4].szerzo} | ${adatTomb[4].mu} | ${adatTomb[4].fogalmakEgy} | ${adatTomb[4].fogalmakKetto} |`) //ötödik sor kiírás
