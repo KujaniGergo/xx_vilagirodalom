@@ -1,8 +1,10 @@
-//commit 6. console col ciklus
+//commit 7. commit console col fuggveny 
+
 /**
  * @type {string[]} a cimSorhoz szukseges tomb
  */
 const cimSor = ["Szerző", "Mű", "Fogalmak"]; // a fejlectomb deklaralasa
+
 
 /**
  * @type {{szerzo: string, mu: string, fogalmakEgy: string, fogalmakKetto?: string}[]} A tablazat torzset tartalmazo adattomb
@@ -40,17 +42,27 @@ const adatTomb = [ // tomb deklaralasa
 
 console.log(cimSor[0] +" | "+ cimSor[1] +" | " + cimSor[2] +" |"); //Címsor kiíréas
 
-for(const obj of adatTomb){  //For cikuls a tömb bejárására
-    /**
-     * @type {string} Típus megadása
-     */
-    let Sor = `${obj.szerzo} | ${obj.mu} |`; //Feltöltés értékekkel
-    if(obj.fogalmakKetto != undefined) //vizsgaljuk, hogy az "FogalmakKetto" undefine-e
-    { 
-        Sor += `${obj.fogalmakEgy} | ${obj.fogalmakKetto} |`; //Ha igen akkor cellák összefűzése
-    }else //elágazás
-    { 
-        Sor += `${obj.fogalmakEgy} |`; //Cella hozzáfűzése
+
+/**
+ * Függvény deklarálás
+ * @param {dataType[]} adatTomb Ezen az adattömbön iterálunk végig
+ * @returns {void} 
+ */
+function AdatKiIras(adatTomb) {  //Adatkiírás func
+        for(const obj of adatTomb){  //For cikuls a tömb bejárására
+        /**
+         * @type {string} Típus megadása
+         */
+        let Sor = `${obj.szerzo} | ${obj.mu} |`; //Feltöltés értékekkel
+        if(obj.fogalmakKetto != undefined) //vizsgaljuk, hogy az "FogalmakKetto" undefine-e
+        { 
+            Sor += `${obj.fogalmakEgy} | ${obj.fogalmakKetto} |`; //Ha igen akkor cellák összefűzése
+        }else //elágazás
+        { 
+            Sor += `${obj.fogalmakEgy} |`; //Cella hozzáfűzése
+        }
+        console.log(Sor) //Kiírás
     }
-    console.log(Sor) //Kiírás
 }
+AdatKiIras(adatTomb); //Függvény meghívása
+
