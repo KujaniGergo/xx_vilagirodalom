@@ -1,10 +1,8 @@
-//commit 7. commit console col fuggveny 
-
+// commit 8. console col simple gomb 
 /**
  * @type {string[]} a cimSorhoz szukseges tomb
  */
 const cimSor = ["Szerző", "Mű", "Fogalmak"]; // a fejlectomb deklaralasa
-
 
 /**
  * @type {{szerzo: string, mu: string, fogalmakEgy: string, fogalmakKetto?: string}[]} A tablazat torzset tartalmazo adattomb
@@ -66,3 +64,27 @@ function AdatKiIras(adatTomb) {  //Adatkiírás func
 }
 AdatKiIras(adatTomb); //Függvény meghívása
 
+
+/**
+ * @type {HTMLElement} //A htmlGombnak html element típust adunk meg
+ */
+const htmlGomb = document.createElement("button"); //htmlGomb változó létrehozása
+document.body.appendChild(htmlGomb); //htmlGomb hozzáfűzése a dokumentumhoz
+htmlGomb.innerText = "sor"; //htmlGomb feltöltése "sor" string-el
+
+
+htmlGomb.addEventListener("click", function(){ //Event listener
+    console.log("htmlGomb lenyomva") //Consol log "htmlGomb lenyomva" ha le van nyomva
+    console.log("") //Üres sor
+    /**
+     * @type {DataType} //ujSor adattípusa
+     */
+    const ujSor = { //új sor deklarálása
+        szerzo: "Szerző", //Változók deklarálása
+        mu: "Mű", //Változók deklarálása
+        fogalmakEgy: "Fogalmak1", //Változók deklarálása
+        fogalmakKetto: "Fogalmak2" //Változók deklarálása
+    }
+    adatTomb.push(ujSor); //Adatombhöz hozzáadjuk az újsort
+    AdatKiIras(adatTomb); //Tábla renderelés az "AdatKiIras"-el
+})
