@@ -1,4 +1,4 @@
-// commit 8. console col simple gomb 
+// commit 9. console col double gomb
 /**
  * @type {string[]} a cimSorhoz szukseges tomb
  */
@@ -64,13 +64,13 @@ function AdatKiIras(adatTomb) {  //Adatkiírás func
 }
 AdatKiIras(adatTomb); //Függvény meghívása
 
-
+//Gomb1
 /**
  * @type {HTMLElement} //A htmlGombnak html element típust adunk meg
  */
 const htmlGomb = document.createElement("button"); //htmlGomb változó létrehozása
 document.body.appendChild(htmlGomb); //htmlGomb hozzáfűzése a dokumentumhoz
-htmlGomb.innerText = "sor"; //htmlGomb feltöltése "sor" string-el
+htmlGomb.innerText = "Sor hozzáadása"; //htmlGomb feltöltése "sor" string-el
 
 
 htmlGomb.addEventListener("click", function(){ //Event listener
@@ -87,4 +87,30 @@ htmlGomb.addEventListener("click", function(){ //Event listener
     }
     adatTomb.push(ujSor); //Adatombhöz hozzáadjuk az újsort
     AdatKiIras(adatTomb); //Tábla renderelés az "AdatKiIras"-el
+})
+
+//Gomb2
+/**
+ * @type {HTMLElement} //A htmlGombnak html element típust adunk meg
+ */
+const htmlGombKetto = document.createElement("button"); //htmlGomb változó létrehozása
+document.body.appendChild(htmlGombKetto); //htmlGomb hozzáfűzése a dokumentumhoz
+htmlGombKetto.innerText = "Új objektum hozzáadása";//htmlGomb feltöltése "sor" string-el
+/**
+ * @type {dataType} //Az új objektum adatai amit feltöltünk
+ */
+const ujObj = { //új sor deklarálása
+        szerzo: "ujObjSzerző", //Változók deklarálása
+        mu: "ujObjMű", //Változók deklarálása
+        fogalmakEgy: "ujObjFogalmak1", //Változók deklarálása
+        fogalmakKetto: "ujObjFogalmak2" //Változók deklarálása
+        }
+
+
+htmlGombKetto.addEventListener("click", function(){ //Event listener
+    /**
+     * @type {DataType} //ujObj adattípusa
+     */
+    
+    adatTomb.push(ujObj); //Adatombhöz hozzáadjuk az új objektumot
 })
