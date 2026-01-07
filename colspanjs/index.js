@@ -1,136 +1,78 @@
-//commit 2.  console col valtozo bev
+//commit 3. console col object bev
 //címsor
 /**
- * @type {string} Címsor szerző típusa
+ * @type {string} //Szerző typusa
  */
-const cimSzerzo = "Szerző" //Fejléc szerző változó deklarálása
+const cimSorSzerzo = "Szerző" //Szerző deklarálása
+/**
+ * @type {string} //Mű típusa
+ */
+const cimSorMu = "Mű" //Mű deklarálása
+/**
+ * @type {string} //Ágazat típusa
+ */
+const cimSorAgazat = "Ágazat" //Ágazat Deklarálása
 
 /**
- * @type {string} Címsor Mű típusa
+ * @type {{szerzo:string,mu:string,fogalmakEgy:string,fogalmakKetto:string}} Változók típusainak megadása
  */
-const cimMu = "Mű" //Fejléc mű deklarálása
+const elsoSor = {//Első sor szerző változóinak deklarálása
+    szerzo: "Appolliniare", //Elso sor tartalmai
+    mu: "A megsebzett galamb és a szökőkút", //Elso sor tartalmai
+    fogalmakEgy: "képvers", //Elso sor tartalmai
+    fogalmakKetto: "emlékezés",   //Elso sor tartalmai
+    }
+
 
 /**
- * @type {string} Címsor Fogalmak típusa
+ * @type {{szerzo:string,mu:string,fogalmakEgy:string,fogalmakKetto:string}} Változók típusainak megadása
  */
-const cimFogalmak = "Fogalmak"//Fejléc fogalmak deklarálása
+const masodikSor = {//Második sor szerző változóinak deklarálása
+    szerzo: "Apollinaire", //Második sor tartalmai
+    mu: "Búcsú", //Második sor tartalmai
+    fogalmakEgy: "avantgárd",//Második sor tartalmai
+    }
 
-
-
-
-//első sor
-/**
- * @type {string} Első sor szerző típusa
- */
-const elsoSorSzerzo = "Appolliniare" //Első sor szerző változó deklarálása
 
 /**
- * @type {string} Első mű szerző típusa
+ * @type {{szerzo:string,mu:string,fogalmakEgy:string,fogalmakKetto:string}} Változók típusainak megadása
  */
-const elsoSorMu = "A megsebzett galamb és a szökőkút" //első sor szerző változó deklarálása
+const harmadikSor = {//Harmadik sor szerző változóinak deklarálása
+    szerzo: "Thomas Mann", //Harmadik sor tartalmai
+    mu: "Mario és a varázsló",//Harmadik sor tartalmai
+    fogalmakEgy: "kisregény", //Harmadik sor tartalmai
+    }
+
 
 /**
- * @type {string} Első fogalmak1 szerző típusa
+ * @type {{szerzo:string,mu:string,fogalmakEgy:string,fogalmakKetto:string}} Változók típusainak megadása
  */
-const elsoSorFogalmakEgy = "képvers" //első fogalmak1 szerző változó deklarálása
+const negyedikSor = {//Negyedik sor szerző változóinak deklarálása
+    szerzo: "Franz Kafka", //Negyedik sor tartalmai
+    mu: "A per", //Negyedik sor tartalmai
+    fogalmakEgy: "regény",//Negyedik sor tartalmai
+    }
+
 
 /**
- * @type {string} Első fogalmak2 szerző típusa
+ * @type {{szerzo:string,mu:string,fogalmakEgy:string,fogalmakKetto:string}} Változók típusainak megadása
  */
-const elsoSorFogalmakKetto = "emlékezés" //első fogalmak2 szerző változó deklarálása
-
-
-
-
-//második sor
-/**
- * @type {string} Második sor szerző típusa
- */
-const masodikSorSzerzo = "Appolliniare" //Második sor szerző változó deklarálása
-
-/**
- * @type {string} Második mű szerző típusa
- */
-const masdikSorMu = "Búcsú" //Második sor szerző változó deklarálása
-
-/**
- * @type {string} Második fogalmak1 szerző típusa
- */
-const masodikSorFogalmakEgy = "avantgárd" //Második fogalmak1 szerző változó deklarálása
-
-
-
-
-//harmadik sor
-/**
- * @type {string} Harmadik sor szerző típusa
- */
-const harmadikSorSzerzo = "Thomas Mann" //Harmadik sor szerző változó deklarálása
-
-/**
- * @type {string} Harmadik mű szerző típusa
- */
-const harmadikSorMu = "Mario és a varázsló" //Harmadik sor szerző változó deklarálása
-
-/**
- * @type {string} Harmadik fogalmak1 szerző típusa
- */
-const harmadikSorFogalmakEgy = "kisregény" //Harmadik fogalmak1 szerző változó deklarálása
+const ototdikSor ={//Ötödik sor szerző változóinak deklarálása
+    szerzo: "Franz Kafka", //Ötödik sor tartalmai
+    mu: "Az átvlátozás", //Ötödik sor tartalmai
+    fogalmakEgy: "kisregény", //Ötödik sor tartalmai
+    fogalmakKetto: "groteszk", //Ötödik sor tartalmai
+    }
 
 
 
 
 
-//negyedik sor
-/**
- * @type {string} Negyedik sor szerző típusa
- */
-const negyedikSorSzerzo = "Franz Kafka" //Negyedik sor szerző változó deklarálása
-
-/**
- * @type {string} Negyedik mű szerző típusa
- */
-const negyedikSorMu = "A per" //Negyedik sor szerző változó deklarálása
-
-/**
- * @type {string} Negyedik fogalmak1 szerző típusa
- */
-const negyedikSorFogalmakEgy = "regény" //Negyedik fogalmak1 szerző változó deklarálása
-
-
-
-
-
-//ötödik sor
-/**
- * @type {string} Ötödik sor szerző típusa
- */
-const otodikSorSzerzo = "Franz Kafka" //Ötödik sor szerző változó deklarálása
-
-/**
- * @type {string} Ötödik mű szerző típusa
- */
-const otodikSorMu = "Az átvlátozás" //Ötödik sor szerző változó deklarálása
-
-/**
- * @type {string} Ötödik fogalmak1 szerző típusa
- */
-const otodikSorFogalmakEgy = "kisregény" //Ötödik fogalmak1 szerző változó deklarálása
-
-/**
- * @type {string} Ötödik fogalmak1 szerző típusa
- */
-const otodikSorFogalmakKetto = "groteszk" //Ötödik fogalmak2 szerző változó deklarálása
 
 //kiírás consol-ba
-console.log( cimSzerzo +" | "+ cimMu +" | " + cimFogalmak +"| |" );// sor logolás
-
-console.log(`${elsoSorSzerzo} | ${elsoSorMu} | ${elsoSorFogalmakEgy} | ${elsoSorFogalmakKetto} |`) //1. sor logolás
-
-console.log(`${masodikSorSzerzo} | ${masdikSorMu} | ${masodikSorFogalmakEgy} | |`) //2. sor logolás
-
-console.log(`${harmadikSorSzerzo} | ${harmadikSorMu} | ${harmadikSorFogalmakEgy} |  |`)//3. sor logolás
-
-console.log(`${negyedikSorSzerzo} | ${negyedikSorMu} | ${negyedikSorFogalmakEgy} | |`) //4. sor logolás
-
-console.log(`${otodikSorSzerzo} | ${otodikSorMu} | ${otodikSorFogalmakEgy} | ${otodikSorFogalmakKetto} |`)//5. sor logolás
+console.log( cimSorSzerzo +" | "+ cimSorMu +" | " + cimSorAgazat +"| |"); //első sor kiírás
+console.log(`${elsoSor.szerzo} | ${elsoSor.mu} | ${elsoSor.fogalmakEgy} | ${elsoSor.fogalmakKetto} |`) //második sor kiírás
+console.log(`${masodikSor.szerzo} | ${masodikSor.mu} | ${masodikSor.fogalmakEgy} | |`) //első sor kiírás
+console.log(`${harmadikSor.szerzo} | ${harmadikSor.mu} | ${harmadikSor.fogalmakEgy} |  |`) //harmadik sor kiírás
+console.log(`${negyedikSor.szerzo} | ${negyedikSor.mu} | ${negyedikSor.fogalmakEgy} | |`) //negyedik sor kiírás
+console.log(`${ototdikSor.szerzo} | ${ototdikSor.mu} | ${ototdikSor.fogalmakEgy} | ${ototdikSor.fogalmakKetto} |`) //ötödik sor kiírás
