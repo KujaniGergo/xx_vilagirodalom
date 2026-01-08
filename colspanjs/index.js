@@ -1,8 +1,12 @@
-// commit 9. console col double gomb
+
 /**
- * @type {string[]} a cimSorhoz szukseges tomb
+ * @type {{szoveg: string}[]} //string típus az array elemeinek
  */
-const cimSor = ["Szerző", "Mű", "Fogalmak"]; // a fejlectomb deklaralasa
+const cimSor = [ //cimsor array
+    { szoveg: "Szerző" }, //Szerző
+    { szoveg: "Mű" }, //Mű
+    { szoveg: "Fogalmak" } //Fogalmak
+];
 
 /**
  * @type {{szerzo: string, mu: string, fogalmakEgy: string, fogalmakKetto?: string}[]} A tablazat torzset tartalmazo adattomb
@@ -56,31 +60,30 @@ table.appendChild(thead); //thead hozzáfűzése a table hez
 table.appendChild(tbody); //tbody hozzáfűzése a table hez
 document.body.appendChild(table); //tbale hozzáfűzése a body-hoz
 
+/**
+ * @type {HTMLTableRowElement} //fejléc típusmegadása
+ */
+const fejlecSor = document.createElement('tr'); //fejléc sor létrhozás
+thead.appendChild(fejlecSor); //sor hozzáfűzése
 
 /**
- * //függvény ami ki rendreli a táblázat fejlecét
- * @param {dataType[]} cimSor /a tömb amit bejárunk a függvénybens
- * @param {HTMLTableSectionElement} parent //amihez hozzáfűzzük
- * @returns {void}
+ * Fejléc kiírása
+ * @param {{szoveg: string}[]} cimArr //A tömb amiben a cim szövegei vannak
+ * @param {HTMLTableRowElement} parent //amihez fűzzük a cellát
+ * @returns {void} //visszatérési érték
  */
-function fejlecKiiras(cimSor, parent) { //függvény létrhozás
-    /**
-     *  @type {HTMLTableRowElement} //típus megadása
-     */ 
-    const fejlecSor = document.createElement('tr'); //sor létrehozás
-    parent.appendChild(fejlecSor); //sor hozzáfűzése a fejléhez
-
-    for (const cim of cimSor) { //cimsor adattömb bejárása
-        /** 
-         * @type {HTMLTableCellElement} //típus megadása
-         */ 
-        const th = document.createElement('th'); //cella létrhozás
-        th.innerText = cim;  //cella feltöltése
-        fejlecSor.appendChild(th);  //cella hozzáfűzése
+function fejlecKiiras(cimArr, parent) { //függvény definiálás
+    for (let i = 0; i < cimArr.length; i++) { //tömb bejárása
+        /**
+         * @type {HTMLTableCellElement} //cella typus megadása
+         */
+        const th = document.createElement("th"); //cella létrehozás
+        th.innerText = cimArr[i].szoveg; //cella feltöltése szöveggel
+        if(cimArr[i].colspan == 2); //ha nincsen 4. cella összevonás
+        parent.appendChild(th); //cella hozzáfűzése a fejlécorhoz
     }
 }
-
-fejlecKiiras(cimSor, thead); //függvény meghívása
+fejlecKiiras(cimSor, fejlecSor); //függvény meghívás
 
 /**
  * //függvény ami ki rendreli a táblázat bodi-ját
