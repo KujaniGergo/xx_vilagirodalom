@@ -58,18 +58,29 @@ document.body.appendChild(table); //tbale hozzáfűzése a body-hoz
 
 
 /**
- * @type {HTMLTableRowElement} //típus megadása
+ * //függvény ami ki rendreli a táblázat fejlecét
+ * @param {dataType[]} cimSor /a tömb amit bejárunk a függvénybens
+ * @param {HTMLTableSectionElement} parent //amihez hozzáfűzzük
+ * @returns {void}
  */
-const fejlecSor = document.createElement('tr'); //Fejléc sor létrhozás
-for (const cim of cimSor) { //fejléc tömb bejárása
-    thead.appendChild(fejlecSor); //fejlecSor a thead hez fűzése
+function fejlecKiiras(cimSor, parent) { //függvény létrhozás
     /**
-     * @type {HTMLTableCellElement} //típus megadása
-     */
-    const th = document.createElement('th'); //th cella létrhozás
-    th.innerText = cim; //cella feltöltése adattal
-    fejlecSor.appendChild(th); //cella sorhoz fűzése
+     *  @type {HTMLTableRowElement} //típus megadása
+     */ 
+    const fejlecSor = document.createElement('tr'); //sor létrehozás
+    parent.appendChild(fejlecSor); //sor hozzáfűzése a fejléhez
+
+    for (const cim of cimSor) { //cimsor adattömb bejárása
+        /** 
+         * @type {HTMLTableCellElement} //típus megadása
+         */ 
+        const th = document.createElement('th'); //cella létrhozás
+        th.innerText = cim;  //cella feltöltése
+        fejlecSor.appendChild(th);  //cella hozzáfűzése
+    }
 }
+
+fejlecKiiras(cimSor, thead); //függvény meghívása
 
 /**
  * //függvény ami ki rendreli a táblázat bodi-ját
