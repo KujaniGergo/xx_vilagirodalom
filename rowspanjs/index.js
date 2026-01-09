@@ -1,91 +1,53 @@
 /**
- * @type {string} A szerző típusa
+ * @type {string} A szerző oszlopfejléce
  */
-const fejlecSzerzo = "Szerző" //Fejléc sor adata
+const fejlecSzerzo = "Szerző" // változó deklarálása
 /**
- * @type {string} A mű típusa
+ * @type {string} A mű oszlopfejléce
  */
-const fejlecMu = "Mű" //Fejléc sor adata
+const fejlecMu = "Mű" // változó deklarálása
 /**
- * @type {string} A fogalmak típusa
- */ 
-const fejlecFogalmak = "Fogalmak" //Fejléc sor adata
+ * @type {string} A fogalom oszlopfejléce
+ */
+const fejlecFogalom = "Fogalom" // változó deklarálása
 
 
 /**
- * @type {string} Első sor szerzője
+ * @type {{szerzo: string, mu: string, fogalmakEgy: string, muKetto: string, fogalmakKetto: string}} Apollinairehez tartozó adatok
  */
-const elsoSorSzerzo = "Apollinaire" //Első sor adata
-/**
- * @type {string} Első sor mű címe
- */
-const elsoSorMu = "A megsebzett galamb és a szökőkút" //Első sor adata
-/**
- * @type {string} Első sor fogalma
- */
-const elsoSorFogalom = "képvers" //Első sor adata
-
+const szerzoApollinaire = { // objektum definiáls
+    szerzo: "Apollinaire", // szerző neve
+    mu: "A megsebzett galamb és a szökőkút", // első mű
+    fogalmakEgy: "képvers", // első mű fogalma
+    muKetto: "Búcsú", // második mű
+    fogalmakKetto: "avantgárd" // második mű fogalma
+}
 
 /**
- * @type {string} Második sor szerzője
+ * @type {{szerzo: string, mu: string, fogalmakEgy: string}} Mannhez tartozó adatok
  */
-const masodikSorSzerzo = "Apollinaire" //Második sor adata
-/**
- * @type {string} Második sor mű címe
- */
-const masodikSorMu = "Búcsú" //Második sor adata
-/**
- * @type {string} Második sor fogalma
- */
-const masodikSorFogalom = "avantgárd" //Második sor adata
-
+const szerzoThomasMann = { // objektum definiáls
+    szerzo: "Thomas Mann", // szerző neve
+    mu: "Mario és a varázsló", // mű
+    fogalmakEgy: "kisregény" // mű fogalma
+}
 
 /**
- * @type {string} Harmadik sor szerzője
+ * @type {{szerzo: string, mu: string, fogalmakEgy: string, muKetto: string, fogalmakKetto: string}} Kafkahoz tartozó adatok
  */
-const harmadikSorSzerzo = "Thomas Mann" //Harmadik sor adata
-/**
- * @type {string} Harmadik sor mű címe
- */
-const harmadikSorMu = "Mario és a varázsló" //Harmadik sor adata
-/**
- * @type {string} Harmadik sor fogalma
- */
-const harmadikSorFogalom = "kisregény" //Harmadik sor adata
-
-
-/**
- * @type {string} Negyedik sor szerzője
- */
-const negyedikSorSzerzo = "Franz Kafka" //Negyedik sor adata
-/**
- * @type {string} Negyedik sor mű címe
- */
-const negyedikSorMu = "A per" //Negyedik sor adata
-/**
- * @type {string} Negyedik sor fogalma
- */
-const negyedikSorFogalom = "regény" //Negyedik sor adata
-
-
-/**
- * @type {string} Ötödik sor szerzője
- */
-const otodikSorSzerzo = "Franz Kafka" //Ötödik sor adata
-/**
- * @type {string} Ötödik sor mű címe 
- */
-const otodikSorMu = "Az átváltozás" //Ötödik sor adata
-/**
- * @type {string} Ötödik sor fogalma
- */
-const otodikSorFogalom = "kisregény" //Ötödik sor adata
+const szerzoKafka = { // objektum definiálás
+    szerzo: "Franz Kafka", // szerző neve
+    mu: "A per", // első mű
+    fogalmakEgy: "regény", // első mű fogalma
+    muKetto: "Az átváltozás", // második mű
+    fogalmakKetto: "kisregény" // második mű fogalma
+}
 
 
 // Táblázat kiírása a konzolba
-console.log(`${fejlecSzerzo} | ${fejlecMu} | ${fejlecFogalmak} |`) //Fejléc Kiírás
-console.log(`${elsoSorSzerzo} | ${elsoSorMu} | ${elsoSorFogalom} |`) //1. sor Kiírás
-console.log(`${masodikSorSzerzo} | ${masodikSorMu} | ${masodikSorFogalom} |`) //2. sor Kiírás
-console.log(`${harmadikSorSzerzo} | ${harmadikSorMu} | ${harmadikSorFogalom} |`) //3. sor Kiírás
-console.log(`${negyedikSorSzerzo} | ${negyedikSorMu} | ${negyedikSorFogalom} |`) //4. sor Kiírás
-console.log(`${otodikSorSzerzo} | ${otodikSorMu} | ${otodikSorFogalom} |`) //5. sor Kiírás
+console.log(`${fejlecSzerzo} | ${fejlecMu} | ${fejlecFogalom} |`) // Fejléc kiírása
+console.log(`${szerzoApollinaire.szerzo} | ${szerzoApollinaire.mu} | ${szerzoApollinaire.fogalmakEgy} |`) // 1. sor
+console.log(` |_ | ${szerzoApollinaire.muKetto} | ${szerzoApollinaire.fogalmakKetto} |`) // 2. sor
+console.log(`${szerzoThomasMann.szerzo} | ${szerzoThomasMann.mu} | ${szerzoThomasMann.fogalmakEgy} |`) // 3. sor
+console.log(`${szerzoKafka.szerzo} | ${szerzoKafka.mu} | ${szerzoKafka.fogalmakEgy} |`) // 4. sor
+console.log(` |_ | ${szerzoKafka.muKetto} | ${szerzoKafka.fogalmakKetto} |`) // 5. sor
