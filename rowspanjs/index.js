@@ -30,31 +30,15 @@ const adatTomb = [ //Tömb definiálása
 
 console.log(`${cimSor[0]} | ${cimSor[1]} | ${cimSor[2]} |`) //táblázat fejléc kiírás
 
-/**
- * @type {string} Apollinaire
- */
-let apollinaireSor = `${adatTomb[0].szerzo} | ${adatTomb[0].muEgy} | ${adatTomb[0].fogalomEgy} |` // első sor összeállítása
-if (adatTomb[0].muKetto && adatTomb[0].fogalomKetto) { //második mű vizsgálása
-    apollinaireSor += `\n |_ | ${adatTomb[0].muKetto} | ${adatTomb[0].fogalomKetto} |` // új sor hozzáfűzése
+
+// tablázat kiírása ciklussal
+for (const a in adatTomb) { //végigiterálunk az adattombön
+    /**
+     * @type {string} //típusa jelenlegi sornak
+     */
+    let sor = `${adatTomb[a].szerzo}    | ${adatTomb[a].muEgy}    | ${adatTomb[a].fogalomEgy}    |` //sorok összefűzése
+    if (adatTomb[a].muKetto && adatTomb[a].fogalomKetto) { //vizsgáljuk van e második mű cella
+        sor += `\n  |_  | ${adatTomb[a].muKetto}    | ${adatTomb[a].fogalomKetto}` //második sor hozzáfűzése
+    }
+    console.log(sor) //sor kiírása
 }
-console.log(apollinaireSor) // sor kiírása
-
-
-/**
- * @type {string} Thomas Mann
- */
-let thomasMannSor = `${adatTomb[1].szerzo} | ${adatTomb[1].muEgy} | ${adatTomb[1].fogalomEgy} |` // sor összeállítása
-if (adatTomb[1].muKetto && adatTomb[1].fogalomKetto) { //második mű vizsgálása
-    thomasMannSor += `\n |_ | ${adatTomb[1].muKetto} | ${adatTomb[1].fogalomKetto} |` // új sor hozzáfűzése
-}
-console.log(thomasMannSor) // sor kiírása
-
-
-/**
- * @type {string} Franz Kafka
- */
-let kafkaSor = `${adatTomb[2].szerzo} | ${adatTomb[2].muEgy} | ${adatTomb[2].fogalomEgy} |` // első sor összeállítása
-if (adatTomb[2].muKetto && adatTomb[2].fogalomKetto) { //második mű vizsgálása
-    kafkaSor += `\n |_ | ${adatTomb[2].muKetto} | ${adatTomb[2].fogalomKetto} |` // új sor hozzáfűzése
-}
-console.log(kafkaSor) // sor kiírása
