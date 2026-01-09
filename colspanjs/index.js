@@ -1,4 +1,3 @@
-
 /**
  * @type {{szoveg: string}[]} //string típus az array elemeinek
  */
@@ -7,6 +6,8 @@ const cimSor = [ //cimsor array
     { szoveg: "Mű" }, //Mű
     { szoveg: "Fogalmak" } //Fogalmak
 ];
+
+
 
 /**
  * @type {{szerzo: string, mu: string, fogalmakEgy: string, fogalmakKetto?: string}[]} A tablazat torzset tartalmazo adattomb
@@ -40,6 +41,7 @@ const adatTomb = [ // tomb deklaralasa
         fogalmakKetto: "groteszk", //Ötödik sor adatai
     }
 ]
+
 
 // Táblázat elemeinek létrhozása
 /**
@@ -86,54 +88,57 @@ function fejlecKiiras(cimArr, parent) { //függvény definiálás
 fejlecKiiras(cimSor, fejlecSor); //függvény meghívás
 
 /**
- * //függvény ami ki rendreli a táblázat bodi-ját
- * @param {dataType[]} adatok //a tömb amit bejárunk a függvényben
- * @returns {void} //visszatérés
+ * Függvény ami kirendereli a táblázat body-ját
+ * @param {{dataType}[]} adatok //A tömb amiben a cim szövegei vannak
+ * @param {HTMLTableSectionElement} tbodyElem //amihez fűzzük a cellát
+ * @returns {void} //visszatérési érték
  */
-function AdatKiIras(adatok) { //adatkiirás func létrehozása
-    tbody.innerHTML = ""; //Adat ürítés
-    for (const cella of adatok) { //adatTomb bejárás
+function AdatKiIras(adatok, tbodyElem) {//függvény definiálás
+    tbodyElem.innerHTML = ""; //body ürítése
+
+    for (const cella of adatok) { //tömb bejárása
         /**
-         * @type {HTMLTableCellElement} //típus megadása
+         * @type {HTMLTableRowElement} //cella típusmegadása
          */
-        const tr = document.createElement('tr'); //tr sor létrhozás
+        const tr = document.createElement('tr'); //sor létrehozás
 
         /**
-         * @type {HTMLTableCellElement} //típus megadása
+         * @type {HTMLTableCellElement} //cella típusmegadása
          */
-        const tdSzerzo = document.createElement('td'); //szerző cella létrhozás
-        tdSzerzo.innerText = cella.szerzo; //szerző cella adatokkal feltöltése
-        tr.appendChild(tdSzerzo); //szerző cella sorhoz fűzés
+        const tdSzerzo = document.createElement('td'); //cella létrehozás
+        tdSzerzo.innerText = cella.szerzo; //cella feltöltése szöveggel
+        tr.appendChild(tdSzerzo); //sorhoz fűzés
 
         /**
-         * @type {HTMLTableCellElement} //típus megadása
+         * @type {HTMLTableCellElement} //cella típusmegadása
          */
-        const tdMu = document.createElement('td'); //mű cella létrhozás
-        tdMu.innerText = cella.mu; //mű cella adatokkal feltöltése
-        tr.appendChild(tdMu); //mű cella sorhoz fűzés
+        const tdMu = document.createElement('td'); //cella létrehozás
+        tdMu.innerText = cella.mu; //cella feltöltése szöveggel
+        tr.appendChild(tdMu); //sorhoz fűzés
 
         /**
-         * @type {HTMLTableCellElement} //típus megadása
+         * @type {HTMLTableCellElement} //cella típusmegadása
          */
-        const tdFogalomEgy = document.createElement('td');//fogalom szerző cella létrhozás
-        tdFogalomEgy.innerText = cella.fogalmakEgy; //fogalom cella adatokkal feltöltése
-        tr.appendChild(tdFogalomEgy); //fogalom cella sorhoz fűzés
-        
-        if (cella.fogalmakKetto === undefined) {//csekoljuk hogy az utolsó cella üres e
-            tdFogalomEgy.colSpan = 2; //ha igen akkor az utolsó elöttivel összevonjuk
-        } else {  //ha nem
+        const tdFogalomEgy = document.createElement('td'); //cella létrehozás
+        tdFogalomEgy.innerText = cella.fogalmakEgy; //cella feltöltése szöveggel
+        tr.appendChild(tdFogalomEgy); //sorhoz fűzés
+
+        if (cella.fogalmakKetto == undefined) { //feltétel
+            tdFogalomEgy.colSpan = 2; //cellák összevonása ha nincsen 4.
+        } else { //elágazás ha ez első feltétel nem tlejesül, fetöltés 4. cella dataival
             /**
-             * @type {HTMLTableCellElement} //típus megadása
-             */
-            const tdFogalomKetto = document.createElement('td'); //fogalom szerző cella létrhozás
-            tdFogalomKetto.innerText = cella.fogalmakKetto; //fogalom cella adatokkal feltöltése
-            tr.appendChild(tdFogalomKetto); //fogalom cella sorhoz fűzés
+            * @type {HTMLTableCellElement} //cella típusmegadása
+            */
+            const tdFogalomKetto = document.createElement('td'); //cella létrehozás
+            tdFogalomKetto.innerText = cella.fogalmakKetto; //cella feltöltése szöveggel
+            tr.appendChild(tdFogalomKetto);  //sorhoz fűzés
         }
-        tbody.appendChild(tr); //sor a táblához  fűzése
+
+        tbodyElem.appendChild(tr); //sor füzése a táblához
     }
 }
 
-AdatKiIras(adatTomb);  //függvény meghívás
+AdatKiIras(adatTomb, tbody); //függvény meghívás
 
 
 
@@ -156,12 +161,14 @@ htmlGomb.addEventListener("click", function(){ //Event listener
         fogalmakEgy: "ujcellaFogalmak1", //Változók deklarálása
     }
     adatTomb.push(ujSor); //Adatombhöz hozzáadjuk az újsort
-    AdatKiIras(adatTomb); //Tábla renderelés az "AdatKiIras"-el
+    AdatKiIras(adatTomb, tbody); //Tábla renderelés az "AdatKiIras"-el
 });
 
 
+
+
 //Gomb2
-/**
+/** 
  * @type {HTMLElement} //A htmlGombnak html element típust adunk meg
  */
 const htmlGombKetto = document.createElement("button"); //htmlGomb változó létrehozása
@@ -185,5 +192,5 @@ htmlGombKetto.addEventListener("click", function(){ //Event listener
         }
     
     adatTomb.push(ujcella); //Adatombhöz hozzáadjuk az új cellaektumot
-    AdatKiIras(adatTomb); //Tábla renderelés az "AdatKiIras"-el
+    AdatKiIras(adatTomb, tbody); //Tábla renderelés az "AdatKiIras"-el
 });
