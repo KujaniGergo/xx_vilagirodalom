@@ -31,14 +31,24 @@ const adatTomb = [ //Tömb definiálása
 console.log(`${cimSor[0]} | ${cimSor[1]} | ${cimSor[2]} |`) //táblázat fejléc kiírás
 
 
-// tablázat kiírása ciklussal
-for (const a in adatTomb) { //végigiterálunk az adattombön
-    /**
-     * @type {string} //típusa jelenlegi sornak
-     */
-    let sor = `${adatTomb[a].szerzo}    | ${adatTomb[a].muEgy}    | ${adatTomb[a].fogalomEgy}    |` //sorok összefűzése
-    if (adatTomb[a].muKetto && adatTomb[a].fogalomKetto) { //vizsgáljuk van e második mű cella
-        sor += `\n  |_  | ${adatTomb[a].muKetto}    | ${adatTomb[a].fogalomKetto}` //második sor hozzáfűzése
+/**
+ * console logolja a táblázatot
+ * @param {DataType[]} lista ezen a tömbön megyünk végig
+ * @returns {void} visszatérési érték
+ */
+function tablaKiiras(lista){ // tablaKiiras függvény
+    console.log(`${cimSor[0]} | ${cimSor[1]} | ${cimSor[2]} |`); // fejléc kiírás
+    for(const a in lista){ // végigiterálunk a tömbön
+        /**
+         * @type {string} a sor tartalmának típusa
+         */
+        let sor = `${lista[a].szerzo}    | ${lista[a].muEgy}    | ${lista[a].fogalomEgy}    |` //sor összeállítása
+        if(lista[a].muKetto && lista[a].fogalomKetto){ // vizsgáljuk van e muKetto
+            sor += `\n  |_  | ${lista[a].muKetto}    | ${lista[a].fogalomKetto}` //új sor hozzáfűzése
+        }
+        console.log(sor) //sor kiírása
     }
-    console.log(sor) //sor kiírása
 }
+
+
+tablaKiiras(adatTomb); //meghívjuk a függvényt
