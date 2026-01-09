@@ -38,6 +38,7 @@ console.log(`${cimSor[0]} | ${cimSor[1]} | ${cimSor[2]} |`) //táblázat fejléc
  */
 function tablaKiiras(lista){ // tablaKiiras függvény
     console.log(`${cimSor[0]} | ${cimSor[1]} | ${cimSor[2]} |`); // fejléc kiírás
+
     for(const a in lista){ // végigiterálunk a tömbön
         /**
          * @type {string} a sor tartalmának típusa
@@ -51,4 +52,31 @@ function tablaKiiras(lista){ // tablaKiiras függvény
 }
 
 
-tablaKiiras(adatTomb); //meghívjuk a függvényt
+tablaKiiras(adatTomb); //meghívjuk a függvény
+
+
+
+// gomb létrehozása
+/**
+ * @type {HTMLButtonElement} //gomb típusa
+ */
+const gombb = document.createElement('button'); //gomb létrhozása
+gombb.innerText = 'új sor hozzáadása'; //gomb szöveg megadása
+document.body.appendChild(gombb); //homb a bodyhpz fűzése
+
+
+gombb.addEventListener('click', function() { //event listener
+    console.log('Új sor hozzáad'); //console log
+
+    /** 
+     * @type {{szerzo: string, muEgy: string, fogalomEgy: string}} //típusok megadása
+     */
+    const ujSor = { //uj objektum létrehozása
+        szerzo: "Új Szerző", //szerző adat
+        muEgy: "Új mű", // mű adat
+        fogalomEgy: "Új fogalom" //fogalom adat
+    };
+
+    adatTomb.push(ujSor); //hozzáadjuk a tömbhöz
+    tablaKiiras(adatTomb); //ujra kiírjuk a tömböt
+});
