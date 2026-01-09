@@ -60,12 +60,12 @@ tablaKiiras(adatTomb); //meghívjuk a függvény
 /**
  * @type {HTMLButtonElement} //gomb típusa
  */
-const gombb = document.createElement('button'); //gomb létrhozása
-gombb.innerText = 'új sor hozzáadása'; //gomb szöveg megadása
-document.body.appendChild(gombb); //homb a bodyhpz fűzése
+const gombEgy = document.createElement('button'); //gomb létrhozása
+gombEgy.innerText = 'új sor hozzáadása'; //gomb szöveg megadása
+document.body.appendChild(gombEgy); //homb a bodyhpz fűzése
 
 
-gombb.addEventListener('click', function() { //event listener
+gombEgy.addEventListener('click', function() { //event listener
     console.log('Új sor hozzáad'); //console log
 
     /** 
@@ -78,5 +78,30 @@ gombb.addEventListener('click', function() { //event listener
     };
 
     adatTomb.push(ujSor); //hozzáadjuk a tömbhöz
+    tablaKiiras(adatTomb); //ujra kiírjuk a tömböt
+});
+
+// gomb2 létrehozása
+/**
+ * @type {HTMLButtonElement} //gomb típusa
+ */
+const gombKetto = document.createElement('button'); //gomb létrhozása
+gombKetto.innerText = 'Dupla sor'; //gomb szöveg megadása
+document.body.appendChild(gombKetto); //gomb a bodyhoz fűzése
+
+gombKetto.addEventListener('click', function() { //event listener
+    console.log('Új sor hozzáad'); //console log
+    /** 
+     * @type {{szerzo: string, muEgy: string, fogalomEgy: string, muKetto: string, fogalomKetto: string}} //típusok megadása
+     */ 
+    const ujDuplaSor = {//uj objektum létrehozása
+        szerzo: "Új Szerző", //szerző adat
+        muEgy: "Új mű", // mű adat
+        fogalomEgy: "Új fogalom", //fogalom adat
+        muKetto: 'Új mű 2', //mű adat
+        fogalomKetto: 'Új fogalom 2' //fogalom adat
+    };
+    
+    adatTomb.push(ujDuplaSor); //hozzáadjuk a tömbhöz
     tablaKiiras(adatTomb); //ujra kiírjuk a tömböt
 });
