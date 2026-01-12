@@ -1,7 +1,7 @@
 /**
  * @type {string[]} A szerzők táblázatának oszlopfejlécei
  */
-const cimSor = ["Szerző", "Mű", "Fogalom"] // cimSor változó deklarálása a fejléceknek
+const cimSor = ["Szerző", "Mű", "Fogalom"] // sorCim változó deklarálása a fejléceknek
 
 /**
  * @type {{szerzo: string, muEgy: string, fogalomEgy: string, muKetto: string, fogalomKetto: string}[]} //Adattömb amiből lesz a táblázat
@@ -26,39 +26,113 @@ const adatTomb = [ //Tömb definiálása
         muKetto: "Az átváltozás", // második mű
         fogalomKetto: "kisregény" // második mű fogalma
     }
-]
-
-console.log(`${cimSor[0]} | ${cimSor[1]} | ${cimSor[2]} |`) //táblázat fejléc kiírás
+];
 
 
 /**
- * console logolja a táblázatot
- * @param {DataType[]} lista ezen a tömbön megyünk végig
- * @returns {void} visszatérési érték
+ * @type {HTMLTableSectionElement} //a táblázat
  */
-function tablaKiiras(lista){ // tablaKiiras függvény
-    console.log(`${cimSor[0]} | ${cimSor[1]} | ${cimSor[2]} |`); // fejléc kiírás
+const table = document.createElement('table'); //tábla törzsének létrehozása
+document.body.appendChild(table); //törzs hgozzáfűzése a body-hoz
 
-    for(const a in lista){ // végigiterálunk a tömbön
+/**
+ * @type {HTMLTableSectionElement} //a fejléc
+ */
+const thead = document.createElement('thead'); //thead létrehozás
+table.appendChild(thead); //thead body-hoz fűzése
+
+/**
+ * @type {HTMLTableRowElement} //fejléc sor
+ */
+const sorCim = document.createElement('tr'); //cimsor létrhozása
+thead.appendChild(sorCim); //cimsor hozzáfűzés a thead-hez
+
+
+for (const cim of cimSor) { //fejléc tömb bejárása
+    /**
+     * @type {HTMLTableCellElement} //típus megadása
+     */
+    const th = document.createElement('th'); //fejléc cella létrehozása
+    th.innerText = cim; //cella feltöltése
+    sorCim.appendChild(th); //cella fejléc sorhoz fűzése
+}
+
+/**
+ * @type {HTMLTableSectionElement} //táblázat body
+ */
+const tbody = document.createElement('tbody'); //tábla létrhozása
+table.appendChild(tbody); //tábla documentumhoz fűzése
+
+/**
+ * függvény a táblázat kiirására
+ * @param {DataType[]} lista //aaz adatömb amit bejárunk
+ * @returns {void} //amivel visszatér a függvény
+ */
+function tablaKiiras(lista){ //func definiálása
+    tbody.innerHTML = ''; //tábla ürítése
+    for (const cella of lista) { //adattömb bejárása
+
         /**
-         * @type {string} a sor tartalmának típusa
+         * @type {HTMLTableRowElement} // típus megadása
          */
-        let sor = `${lista[a].szerzo}    | ${lista[a].muEgy}    | ${lista[a].fogalomEgy}    |` //sor összeállítása
-        if(lista[a].muKetto && lista[a].fogalomKetto){ // vizsgáljuk van e muKetto
-            sor += `\n  |_  | ${lista[a].muKetto}    | ${lista[a].fogalomKetto}` //új sor hozzáfűzése
+        const sor = document.createElement('tr'); //első sor létrehozása
+        tbody.appendChild(sor); //sor táblához fűzése
+
+        /**
+         * @type {HTMLTableCellElement} // típus megadása
+         */
+        const cellaSzerzo = document.createElement('td'); //szerzo cella létrehozása
+        cellaSzerzo.innerText = cella.szerzo; //cella feltöltése adattal
+        sor.appendChild(cellaSzerzo); //cella sorhoz fűzése
+
+        /**
+         * @type {HTMLTableCellElement} // típus megadása
+         */
+        const cellaMu1 = document.createElement('td'); //mu cella létrehozása
+        cellaMu1.innerText = cella.muEgy; //cella feltöltése adattal
+        sor.appendChild(cellaMu1); //cella sorhoz fűzése
+
+        /**
+         * @type {HTMLTableCellElement} // típus megadása
+         */
+        const cellFogalom1 = document.createElement('td'); //fogalom cella létrehozása
+        cellFogalom1.innerText = cella.fogalomEgy; //cella feltöltése adattal
+        sor.appendChild(cellFogalom1); //cella sorhoz fűzése
+
+
+        if (cella.muKetto && cella.fogalomKetto) { //elágazás hogy van e cella
+            cellaSzerzo.rowSpan = 2; //szerző cella összevonása
+ 
+            /**
+             * @type {HTMLTableRowElement} // típus megadása
+             */
+            const sor2 = document.createElement('tr'); //második sor létrhozása
+            tbody.appendChild(sor2); //sor táblához fűzése
+ 
+            /**
+             * @type {HTMLTableCellElement} // típus megadása
+             */
+            const cellaMu2 = document.createElement('td'); //mu cella létrehozása
+            cellaMu2.innerText = cella.muKetto; //cella feltöltése adattal
+            sor2.appendChild(cellaMu2); //cella sorhoz fűzése
+
+            /**
+             * @type {HTMLTableCellElement} // típus megadása
+             */
+            const cellaFogalom2 = document.createElement('td'); //fogalom cella létrehozása
+            cellaFogalom2.innerText = cella.fogalomKetto; //cella feltöltése adattal
+            sor2.appendChild(cellaFogalom2); //cella sorhoz fűzése
         }
-        console.log(sor) //sor kiírása
     }
 }
 
-
-tablaKiiras(adatTomb); //meghívjuk a függvény
+tablaKiiras(adatTomb); //függvény meghívása
 
 
 
 // gomb létrehozása
 /**
- * @type {HTMLButtonElement} //gomb típusa
+ * @type {HTMLButtoncellaent} //gomb típusa
  */
 const gombEgy = document.createElement('button'); //gomb létrhozása
 gombEgy.innerText = 'új sor hozzáadása'; //gomb szöveg megadása
@@ -83,7 +157,7 @@ gombEgy.addEventListener('click', function() { //event listener
 
 // gomb2 létrehozása
 /**
- * @type {HTMLButtonElement} //gomb típusa
+ * @type {HTMLButtoncellaent} //gomb típusa
  */
 const gombKetto = document.createElement('button'); //gomb létrhozása
 gombKetto.innerText = 'Dupla sor'; //gomb szöveg megadása
