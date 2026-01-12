@@ -77,16 +77,17 @@ table.appendChild(tbody); //tábla documentumhoz fűzése
  * függvény a táblázat kiirására
  * @param {DataType[]} lista //aaz adatömb amit bejárunk
  * @returns {void} //amivel visszatér a függvény
+ * @param {HTMLTableSectionElement} tabla //table amihez fűzünk
  */
-function tablaKiiras(lista){ //func definiálása
-    tbody.innerHTML = ''; //tábla ürítése
+function tablaKiiras(lista,tabla){ //func definiálása
+    tabla.innerHTML = ''; //tábla ürítése
     for (const cella of lista) { //adattömb bejárása
 
         /**
          * @type {HTMLTableRowElement} // típus megadása
          */
         const sor = document.createElement('tr'); //első sor létrehozása
-        tbody.appendChild(sor); //sor táblához fűzése
+        tabla.appendChild(sor); //sor táblához fűzése
 
         /**
          * @type {HTMLTableCellElement} // típus megadása
@@ -117,7 +118,7 @@ function tablaKiiras(lista){ //func definiálása
              * @type {HTMLTableRowElement} // típus megadása
              */
             const sor2 = document.createElement('tr'); //második sor létrhozása
-            tbody.appendChild(sor2); //sor táblához fűzése
+            tabla.appendChild(sor2); //sor táblához fűzése
  
             /**
              * @type {HTMLTableCellElement} // típus megadása
@@ -136,7 +137,7 @@ function tablaKiiras(lista){ //func definiálása
     }
 }
 
-tablaKiiras(adatTomb); //függvény meghívása
+tablaKiiras(adatTomb,tbody); //függvény meghívása
 
 
 
@@ -162,7 +163,7 @@ gombEgy.addEventListener('click', function() { //event listener
     };
 
     adatTomb.push(ujSor); //hozzáadjuk a tömbhöz
-    tablaKiiras(adatTomb); //ujra kiírjuk a tömböt
+    tablaKiiras(adatTomb, tbody); //ujra kiírjuk a tömböt
 });
 
 // gomb2 létrehozása
@@ -187,5 +188,5 @@ gombKetto.addEventListener('click', function() { //event listener
     };
     
     adatTomb.push(ujDuplaSor); //hozzáadjuk a tömbhöz
-    tablaKiiras(adatTomb); //ujra kiírjuk a tömböt
+    tablaKiiras(adatTomb, tbody); //ujra kiírjuk a tömböt
 });
