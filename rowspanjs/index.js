@@ -48,14 +48,24 @@ const sorCim = document.createElement('tr'); //cimsor létrhozása
 thead.appendChild(sorCim); //cimsor hozzáfűzés a thead-hez
 
 
-for (const cim of cimSor) { //fejléc tömb bejárása
-    /**
-     * @type {HTMLTableCellElement} //típus megadása
-     */
-    const th = document.createElement('th'); //fejléc cella létrehozása
-    th.innerText = cim; //cella feltöltése
-    sorCim.appendChild(th); //cella fejléc sorhoz fűzése
+/**
+ * cimsor létrehozása
+ * @param {string[]} fejlecTomb //a fejlec cellak szovegei
+ * @type {HTMLTableRowElement} //head ben levo sor
+ * @returns {void}
+ */
+function fejlecGeneralas(fejlecTomb){ //func definiálás
+    for (const cim of fejlecTomb) { // fejléc tömb bejárása
+        /**
+         * @type {HTMLTableCellElement} //típus megadása
+         */
+        const th = document.createElement('th'); // fejléc cella létrehozása
+        th.innerText = cim; // cella feltöltése
+        sorCim.appendChild(th); // cella fejléc sorhoz fűzése
+    }
 }
+
+fejlecGeneralas(cimSor,sorCim) //függvény meghívás
 
 /**
  * @type {HTMLTableSectionElement} //táblázat body
