@@ -15,37 +15,13 @@ szimpla.addEventListener('click', function(){ //event listener szimpla gomb
     }
 
     /**
-     * @type {HTMLBodyElement} lekért body típusa
+     * @type {HTMLTableSectionElement} //típus megadás
      */
     const tbody = document.getElementById("tablebody"); //body lekérése
 
-    /**
-     * @type {HTMLTableRowElement} sor típusa
-     */
-    const tr = document.createElement("tr"); // sor létrehozása
-    tbody.appendChild(tr); //sor bodyhoz fűzése
-
-    /**
-     * @type {HTMLTableCellElement} cimsor szező cella
-     */
-    const tdSzerzo = document.createElement("td"); //cimsor szerző cella
-    tr.appendChild(tdSzerzo); //sorhozfűzés
-    tdSzerzo.innerText = ujSor.szerzo //feltöltés az új sor adataibol
-
-    /**
-     * @type {HTMLTableCellElement} cimsor mű cella
-     */
-    const tdMu = document.createElement("td"); //cimsor mű cella
-    tr.appendChild(tdMu); //sorhozfűzés
-    tdMu.innerText = ujSor.mu //feltöltés az új sor adataibol
-
-    /**
-     * @type {HTMLTableCellElement} cimsor fogalmak cella
-     */
-    const tdFogalmak = document.createElement("td"); // cimsor fogalmak cella
-    tr.appendChild(tdFogalmak); //sorhozfűzés 
-    tdFogalmak.innerText = ujSor.fogalmak //feltöltés az új sor adataibol
+    addujSor(ujSor, tbody); //függvény hívás
 });
+
 
 
 //dupla gomb event listener
@@ -68,43 +44,57 @@ dupla.addEventListener('click', function(){ //event listener dupla gomb
     }
 
     /**
-     * @type {HTMLBodyElement} lekért body típusa
+     * @type {HTMLTableSectionElement} //típus megadása
      */
     const tbody = document.getElementById("tablebody"); //body lekérése
+
+    addujSor(ujSor, tbody); //függvény hívás
+});
+
+
+/**
+ * uj sort ad hozzáadás
+ * @param {DataType} ujSor az új sor adatai
+ * @param {HTMLTableSectionElement} tableBody a tbody elem
+ * @returns {void}
+ */
+function addujSor(ujSor, tableBody) { //func definiálás 
 
     /**
      * @type {HTMLTableRowElement} sor típusa
      */
     const tr = document.createElement("tr"); // sor létrehozása
-    tbody.appendChild(tr); //sor bodyhoz fűzése
+    tableBody.appendChild(tr); //sor bodyhoz fűzése
 
     /**
-     * @type {HTMLTableCellElement} cimsor szező cella
+     * @type {HTMLTableCellElement} szező cella típusa 
      */
-    const tdSzerzo = document.createElement("td"); //cimsor szerző cella
+    const tdSzerzo = document.createElement("td"); //szerző cella létrehozás
+    tdSzerzo.innerText = ujSor.szerzo;  //feltöltés adattal
     tr.appendChild(tdSzerzo); //sorhozfűzés
-    tdSzerzo.innerText = ujSor.szerzo //feltöltés az új sor adataibol
 
     /**
-     * @type {HTMLTableCellElement} cimsor mű cella
+     * @type {HTMLTableCellElement}  mű cella típusa 
      */
-    const tdMu = document.createElement("td"); //cimsor mű cella
+    const tdMu = document.createElement("td"); //cella létrehozás
+    tdMu.innerText = ujSor.mu; //feltöltés adattal
     tr.appendChild(tdMu); //sorhozfűzés
-    tdMu.innerText = ujSor.mu //feltöltés az új sor adataibol
 
     /**
-     * @type {HTMLTableCellElement} cimsor fogalmak cella
+     * @type {HTMLTableCellElement} fogalmak cella típusa 
      */
-    const tdFogalmakEgy = document.createElement("td"); // cimsor fogalmak cella
-    tr.appendChild(tdFogalmakEgy); //sorhozfűzés 
-    tdFogalmakEgy.innerText = ujSor.fogalmakEgy //feltöltés az új sor adataibol
+    const tdFogalomEgy = document.createElement("td"); //cella létrehozás
+    tdFogalomEgy.innerText = ujSor.fogalmakEgy; //feltöltés adattal
+    tr.appendChild(tdFogalomEgy); //sorhozfűzés
 
-
+    if (ujSor.fogalmakKetto === undefined) { //elágazás, van e 4. cella
+        tdFogalomEgy.colSpan = 2; //sorok összevonása ha nincsen
+    }else{ //ha van akkor 4. cella létrehozás
     /**
-     * @type {HTMLTableCellElement} cimsor fogalmak cella
+     * @type {HTMLTableCellElement} fogalmak cella típusa 
      */
-    const tdFogalmakKetto = document.createElement("td"); // cimsor fogalmak cella
-    tr.appendChild(tdFogalmakKetto); //sorhozfűzés 
-    tdFogalmakKetto.innerText = ujSor.fogalmakKetto //feltöltés az új sor adataibol
-})
-
+    const tdFogalomKetto = document.createElement("td"); //cella létrehozás
+    tdFogalomKetto.innerText = ujSor.fogalmakKetto; //feltöltés adattal
+    tr.appendChild(tdFogalomKetto); //sorhozfűzés
+    }
+}
