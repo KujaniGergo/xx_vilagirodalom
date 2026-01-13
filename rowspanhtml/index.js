@@ -9,8 +9,8 @@ szimpla.addEventListener('click', function () { //event listener
      */
     const ujSor = { //uj sor adatai
         szerzo: "szerző példa", //adadtok
-        mu: "mű példa", //adadtok
-        fogalmak: "fogalmak példa1" //adadtok
+        mu1: "mű példa", //adadtok
+        fogalmak1: "fogalmak példa1" //adadtok
     };
 
     /**
@@ -71,16 +71,16 @@ function ujSorGeneralas(ujSor, tbody){//func definiálás
     /**
      * @type {HTMLTableCellElement} mű cella
      */
-    const tdMu = document.createElement("td"); //mu cella 
-    tr.appendChild(tdMu); //hozzáfűzés sorhoz
-    tdMu.innerText = ujSor.mu; //feltöltés adattal
+    const tdMu1 = document.createElement("td"); //mu cella 
+    tr.appendChild(tdMu1); //hozzáfűzés sorhoz
+    tdMu1.innerText = ujSor.mu1; //feltöltés adattal
 
     /**
      * @type {HTMLTableCellElement} fogalmak cella
      */
-    const tdFogalmak = document.createElement("td"); //fogalmak cella
-    tr.appendChild(tdFogalmak); //hozzáfűzés sorhoz
-    tdFogalmak.innerText = ujSor.fogalmak;  //feltöltés adattal
+    const tdFogalmak1 = document.createElement("td"); //fogalmak cella
+    tr.appendChild(tdFogalmak1); //hozzáfűzés sorhoz
+    tdFogalmak1.innerText = ujSor.fogalmak1;  //feltöltés adattal
 
 
     if(ujSor.mu2 && ujSor.fogalmak2){ //elágazás
@@ -104,6 +104,6 @@ function ujSorGeneralas(ujSor, tbody){//func definiálás
          */
         const tdFogalmak2 = document.createElement("td"); //fogalmak cella
         tr2.appendChild(tdFogalmak2); //hozzáfűzés sorhoz
-        tdFogalmak2.innerText = ujSor.fogalmak; //feltöltés adattal
+        tdFogalmak2.innerText = ujSor.fogalmak2; //feltöltés adattal
     }
 }
